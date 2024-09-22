@@ -8,16 +8,16 @@
 
       <!-- 标题文字 -->
       <div class="title">
-        <h1 style="font-size: xx-large;color: black; ">卡芙卡</h1>
-        <p style="font-size: medium;color: black;">邀请您通话......</p>
+        <h1 style="font-size: medium;color: black; ">卡芙卡</h1>
+        <p style="font-size: smaller;color: black;">邀请您通话......</p>
       </div>
       <!-- 电话按钮 -->
       <audio ref="audioPlayer"></audio>
-      <div class="flex relative top-18 h-12">
+      <div class="flex relative w-full h-12 top-7 left-5">
         <div class="flex-auto w-10" >
           
-          <button id="red" class="btn btn-circle bg-red-500"  @click="playRandomAudio">
-            <svg style="position:relative;" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
+          <button id="red" class="btn btn-circle btn-md bg-red-500"   @click="playRandomAudio">
+          <svg style="position:relative;" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24">
             <path fill="#ffffff" d="M20 12q-.4 0-.712-.288T18.925 11q-.325-2.325-1.963-3.963T13 5.076q-.425-.05-.712-.35T12 4t.3-.712t.7-.238q3.15.35 5.375 2.575T20.95 11q.05.4-.238.7T20 12m-4.175 0q-.325 0-.575-.225t-.375-.6q-.2-.725-.763-1.287t-1.287-.763q-.375-.125-.6-.375T12 8.15q0-.5.35-.812t.775-.213q1.4.325 2.413 1.338t1.337 2.412q.1.425-.225.775t-.825.35m4.125 9q-3.125 0-6.175-1.362t-5.55-3.863t-3.862-5.55T3 4.05q0-.45.3-.75t.75-.3H8.1q.35 0 .625.238t.325.562l.65 3.5q.05.4-.025.675T9.4 8.45L6.975 10.9q.5.925 1.187 1.787t1.513 1.663q.775.775 1.625 1.438T13.1 17l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.35.1.575.363T21 15.9v4.05q0 .45-.3.75t-.75.3"/>
           </svg>
           </button>
@@ -129,8 +129,8 @@ export default {
 <style>
 .card-bg {
   z-index: 1;
-  width: 370px;
-  height: 390px;
+  width: 100%;
+  height: 105%;
   /* background: linear-gradient(#373745, #16141F); */
   --c: #99ff00;
 	/* 1%更改的是圆点的大小，两个#000是调节渐变的那个*/
@@ -150,11 +150,11 @@ export default {
 
 .ava {
   z-index: 1;
-  width: 128px;
-  height: 128px;
+  width: 100px;
+  height: 100px;
   position: relative;
-  top: 20px;
-  left: 115px;
+  top: 18px;
+  left: 58px;
   background-color: azure;
   border-radius: 55px;
   overflow: hidden;
@@ -162,19 +162,18 @@ export default {
 
 .title {
   z-index: 1;
-  width: 190px;
-  height: 40px;
+  @apply w-full h-fit;
   position: relative;
-  top: 40px;
-  left: 85px;
+  top:20px;
+  text-align: center;
   /* background-color:azure; */
   border-radius: 35px;
 }
 
 .red {
   z-index: 1;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   position: relative;
   top: 0px;
   left: 0px;
@@ -194,7 +193,7 @@ export default {
 }
 .vbtnpos{
   position: relative;
-  top: 145px;
+  top: 45px;
 }
 
 audio {

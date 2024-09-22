@@ -34,13 +34,13 @@
 <style scoped>
 
 .svg{
+  @apply w-full h-full object-cover;
   z-index: 1;
-  width: 100%;
-  height: 100%;
+
   position: absolute;
   left: 0;
-  top: -20%;
-  scale: 0.5;
+  top: 0;
+  scale: 1;
 }
 #dateText {
   font-size: calc(30px + 1vw); /* 根据视口宽度调整字体大小 */
