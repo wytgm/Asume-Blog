@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default defineNuxtPlugin(() => {
   const instance = axios.create({
-    baseURL: 'http://api.example.com',
+    baseURL: '',
     timeout: 10000,
     withCredentials: true, // 允许携带cookie
   })
