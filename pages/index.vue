@@ -88,14 +88,6 @@
 
   <div class="bottomrect z-0 overflow-hidden">
     <GridLayout />
-
-
-
-
-
-
-
-
   </div>
 
 

@@ -17,6 +17,7 @@
     "nuxt-app": "file:",
     "sakana-widget": "^2.7.0",
     "vue": "latest",
+    "vue-lazyload": "^3.0.0",
     "vue-router": "latest"
   },
   "devDependencies": {
