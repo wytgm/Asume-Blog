@@ -1,20 +1,16 @@
 <template>
+  <div>
+  <top/>
   <div class="whole">
-    <div class="bottomrect">
-      <video muted autoplay loop class="-z-1 absolute top-0 rounded-3xl">
-        <source src="/BG.mp4" type="video/mp4">
-      </video>
-      <div class="flexcus">
-        <div class="flex-item-left"></div>
-        <div class="flex-item-right overflow-auto">
-          <div class="grid grid-cols-3 gap-2  overflow-scroll overflow-x-hidden rounded-2xl">
+    <div class="bottomrectA">
+      <div class="gridcus">
             <div class="card flex flex-row" v-for="(animation, index) in animations" :key="index">
-              <div class="flex w-1/2 h-full bg-rose-400 relative">
+              <div class="flex w-1/2 h-full relative">
                 <div class="imgcard">
                   <img class="imgcus" v-lazy="animation.poster" :alt="animation.title" />
                 </div>
               </div>
-              <div class="flex flex-col w-1/2 h-full relative items-center justify-center space-y-2 p-3">
+              <div class="flex flex-col w-1/2 h-full relative items-center justify-center space-y-6 p-3">
                 <span class="title">{{ animation.title }}</span>
                 <div class="rating">
                   <input class="mask mask-star-2 star"  v-for="n in Math.floor(animation.rating)" :key="n" />
@@ -23,9 +19,8 @@
                 <button class="btn buttoncus underline decoration-wavy" @click="openModal(index)">观影感受</button>
               </div>
             </div>
-          </div>
-        </div>
       </div>
+        
     </div>
      <!-- 卡片按钮弹窗：对话框列表 -->
      <dialog id="myModal" class="modal">
@@ -54,13 +49,12 @@
       </form>
     </dialog>
   </div>
-
+</div>
 </template>
 
 <script>
 import { onMounted } from 'vue';
 import animations from '~/assets/json/animation.json';
-
 export default {
   name: "Animation",
   data() {
@@ -69,6 +63,7 @@ export default {
       currentAnimation: null // 初始化为 null
     };
   },
+ 
   methods: {
     openModal(index) {
       console.log('Opening modal for index:', index); // 调试信息
@@ -96,97 +91,66 @@ export default {
 </script>
 
 
-<style>
-.whole{
-  @apply 
-  container 
-  mx-auto 
-  w-full h-full  
-  center;
-  font-family: 'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
-}
+<style scoped>
 .center{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.bottomrect{
-  z-index: 1;
+.whole{
+  @apply 
+  container 
+  mx-auto 
+  w-full h-full  
+  center;
+  /* overflow-hidden; */
+  font-family: 'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
+}
+.bottomrectA{
+  z-index: 2;
   @apply 
   w-full 
   relative 
   center 
-  flex items-center justify-center
-  overflow-hidden;
-  height: 720px;
-  /* background-color: #4eb3a2; */
-  /* --c: #cd1ef9;
-  background: repeating-linear-gradient(45deg,var(--c),#000,var(--c) 0.5%),
-              repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
-              linear-gradient(180deg,#2a2a2adb,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(1.1); */
-  /* background-color: #9ff002;
-  background-image:repeating-linear-gradient(45deg,
-  hsla(0,0%,100%,.5),
-  hsla(0,0%,100%,.5) 15px,
-  transparent 0,
-  transparent 30px);
-  border-radius: 45px; */
+  p-3
+  overflow-scroll 
+  overflow-x-hidden;
+  height: 700px;
+  background-color: #9ff002;
 }
-.bottom1{
-  @apply 
-  absolute
-  top-3
-  right-0 ;
-  width: 1100px;
-  height:680px;
-  border-radius: 45px;
+
+.gridcus{
+  @apply grid 
+  sm:grid-cols-1 
+  md:grid-cols-2 
+  lg:grid-cols-3 
+  xl:grid-cols-4 
+  gap-2  
+  overflow-scroll 
+  overflow-x-hidden 
+  items-center
+  justify-center
+
 }
-.flexcus{
-  @apply 
-  flex flex-row flex-nowrap 
-  w-full h-full 
-  relative 
-  rounded-3xl  
-  p-6 space-x-3;
-}
-.flex-item-left{
-  @apply
-  flex w-80 h-full bg-rose-200 ;
-  border-top-right-radius: 30px;
-  border-bottom-left-radius: 65px;
-}
-.flex-item-right{
-  @apply
-  flex w-full h-full p-4 bg-rose-400;
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px; 
-}
+
 .card {
-  display: flex;
-position: relative;
-width: 360px;
-height: 285px;
-/* background: #202020; */
-border-radius: 20px;
-overflow: hidden;
-box-shadow: 0 15px 35px rgba(0, 0, 0, .1);
-/* #202020 #EDFE65 */
-background-color:  #4ec401;
-background-image:repeating-linear-gradient(45deg,
-hsla(0,0%,100%,.8),
-hsla(0,0%,100%,.8) 15px,
-transparent 0,
-transparent 30px);
-/* --c: #22ff00;
-  background: repeating-linear-gradient(45deg,var(--c),#000,var(--c) 1.2%),
-              repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 1.2%),
-              linear-gradient(0deg,#2a2a2adb,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(1.1);  */
+  @apply 2xl:w-72 xl:w-60 lg:w-64 md:w-72 sm:w-64;
+  height: 333px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 66px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .1);
+  background-color:  #232323;
+  background-image:repeating-linear-gradient(45deg,
+                hsla(0,0%,100%,.1),
+                hsla(0,0%,100%,.1) 16px,
+                transparent 0,
+                transparent 30px);
 }
+
 .imgcard{
   width: 100%;
   height: 100%;
@@ -267,17 +231,16 @@ transparent 30px);
 }
 
 .modaltext{
-  font-size: 24px;
+  font-size: 28px;
   text-align: center;
-  line-height: 1.75rem ;
-  font-weight: 600;
   color: #000000;
-  --c: #05ff6d;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 3%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 3%),
-	            linear-gradient(45deg,#202020,var(--c));
+  --c: #63023c;
+	background: repeating-linear-gradient(45deg,var(--c),#fff,var(--c) 2%),
+	            repeating-linear-gradient(-30deg,var(--c), #fff, var(--c) 2%),
+	            linear-gradient(0deg,#2b2b2b,var(--c));
 	background-blend-mode: color-dodge;
 	filter: contrast(5);
+  mix-blend-mode:exclusion;
   box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
   border-width: 4px;
   border-color: #000;
@@ -294,17 +257,37 @@ transparent 30px);
 }
 .title{
   text-align: center;
-  color: #000000;
-  --c: #058fff;
+  position: absolute;
+  top: 10%;
+  right: 0%;
+  font-size: medium;
+  text-wrap: nowrap ;
+  color: #341d1d;
+  background-color:limegreen;
+  /* --c: #058fff;
 	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 5%),
 	            repeating-linear-gradient(-30deg,var(--c), #100f0f, var(--c) 5%),
 	            linear-gradient(270deg,#202020,var(--c));
 	background-blend-mode: color-dodge;
-	filter: contrast(3);
+	filter: contrast(3); */
   box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
   border-width: 4px;
   border-color: #000;
-  border-radius: 25px;
-  line-height: 1.8rem;
+  /* border-radius: 25px; */
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 15px;
+}
+.BK-1 {
+  stroke-dasharray: 0 0 0 0 0 0 12.4 12.4 2.86 12.4 12.4 2.86;
+}
+.BK-1, .BK-2, .BK-3 {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+.BK-2 {
+  stroke-dasharray: 0 0 0 0 2.86 12.4 12.4 2.86;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div>   
-    <!-- <div class="-z-1 absolute top-0 left  w-full h-full overflow-hidden">
-      <video muted autoplay loop>
+  <div class="overflow-hidden">   
+    <tophome/>
+    <div class="-z-1 center  w-full h-full overflow-hidden">
+      <video class="center  w-full h-full" muted autoplay loop>
         <source src="/BG.mp4" type="video/mp4">
       </video>
-    </div>
-    -->
+    </div>  
 <!-- 开场动画 -->
-  <!-- <div class="z-0 w-full h-full bg-fuchsia-500 absolute top-0 left-0">
+  <div class="z-30 w-full h-full absolute top-0 left-0 overflow-hidden pointer-events-none">
   <div id="left" class="Left overflow-hidden">
     <div id="imgL">
     <img id="imgLB" class="imgLeftBtm" 
@@ -71,7 +71,7 @@
   </div>
 
   <div id="right" class="Right">
-    <img class="" src="https://mfiles.alphacoders.com/101/1013086.png" alt=""> 
+    <img src="https://mfiles.alphacoders.com/101/1013086.png" alt=""> 
   </div>
 
   <div id="center">
@@ -80,46 +80,96 @@
       <img  class=" w-full h-full object-cover relative" src="http://cdn.sonderwyt.top/Cover/avatar/02.webp" alt="">
     </div>
   </div>
-  </div> -->
+  </div>
 
+  <div class="flex flex-row w-10/12 h-[700px] bg-white center">
+    <div id="test" class="flex w-[650px] h-full bg-rose-500"></div>
+    <div class="flex w-full h-full">
+        <GridLayout class="p-3 bg" />
+    </div>
+
+  </div>
 
     
 
-
+  <!-- <div class="flex flex-row w-5/12" style=" position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);">
+  <div class="flex w-96 h-[720px] bg-white relative"></div>
+ 
   <div class="bottomrect z-0 overflow-hidden">
     <GridLayout />
   </div>
-
+   </div> -->
 
 
   </div>
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import gsap from 'gsap';
+
+export default {
+  name: "home",
+  setup() {
+    onMounted(() => {
+      gsap.to(["#left","#pinkG"], { 
+        x:-900,
+        duration: 1.2,
+        ease:"sine.inOut",
+        stagger: 1
+      })
+      gsap.to(["#right"], { 
+        x:900,
+        duration: 1.2,
+        ease:"sine.inOut",
+        stagger: 0.5
+      })
+
+
+
+      gsap.set(["#center"], { 
+        x:0,
+        y:0,
+        opacity:1,
+        scale:1
+      })
+      gsap.to(["#center"], { 
+        x:750,
+        y:-350,
+        scale:0.25,
+        duration: 1.5,
+        delay:0.3,
+        opacity:0,
+
+        ease:"sine.inOut",
+      })
+      
+    });
+    },
+  
+
+}
 
 
 </script>
 
 
 <style scoped>
-
-
-
-
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 /* PC端 */
 .container {
   font-family:'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
   /* color: white; */
   font-size:x-large;
 }
-
-#pc{
-  display: grid;
-}
-#phone{
-  display: none;
-}
-
 .overly{
   --c: #7e46c7;
 	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.5%),
@@ -134,172 +184,92 @@
   border-color: #000;
   /* border-radius: 25px; */
 }
-.overlysay{
-  z-index: 3;
-  --c: #56bfd4;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.2%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.2%),
-	            linear-gradient(0deg,#202020,var(--c));
-	background-blend-mode: color-dodge;
-	filter: contrast(5);
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-  border-radius: 25px;
-}
-.overlymus{
-  z-index: 3;
-  --c: #ff0051;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.2%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.2%),
-	            linear-gradient(180deg,#161616,var(--c));
-	background-blend-mode: color-dodge;
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-  border-radius: 25px;
-}
-
-.overlymovie{
-  z-index: 1;
-  border-radius: 10px;
-  --c: #1500ff52;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.5%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.5%),
-	            linear-gradient(180deg,#161616,var(--c));
-	background-blend-mode: color-dodge;
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-}
-.overlychat{
-  z-index: 1;
-  border-radius: 10px;
-  --c: #84ff00;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 4%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 5%),
-	            linear-gradient(0deg,#000000,var(--c));
-	background-blend-mode: color-dodge;
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-}
-.overlyhot{
-  z-index: 1;
-  border-radius: 15px;
-  --c: #006aff;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.2%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.2%),
-	            linear-gradient(130deg,#000000,var(--c));
-	background-blend-mode: color-dodge;
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-  color: white;
-}
-.overlyfoot{
-  z-index: 1;
-  border-radius: 15px;
-  --c: #762e2e;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.2%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.2%),
-	            linear-gradient(0deg,#1a1a1a,var(--c));
-	background-blend-mode: color-dodge;
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-  color: white;
-}
-.overlygame{
-  z-index: 1;
-  border-radius: 15px;
-  --c: #00ff84;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.2%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.2%),
-	            linear-gradient(120deg,#1a1a1a,var(--c));
-	background-blend-mode: color-dodge;
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-  color: rgb(0, 0, 0);
-}
-.overlytravel{
-  z-index: 1;
-  border-radius: 15px;
-  --c: #0bd700;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1.2%),
-	            repeating-linear-gradient(-30deg,var(--c), #3c3c3c, var(--c) 1.2%),
-	            linear-gradient(290deg,#1a1a1a,var(--c));
-	background-blend-mode: color-dodge;
- 
-  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255,0.8);  
-  border-width: 4px;
-  border-color: #000;
-  color: rgb(0, 0, 0);
-}
-
-.text {
-	font-size: 150px;
-	color: lime;
-	font-weight: 400;
-	position: relative;
-  left: 0;
-  -webkit-text-stroke: #092f10;
-  -webkit-text-stroke-width: 3px;
-}
-
-/* 手机端 */
 .Left {
-  @apply bg-red-500 w-full h-1/2;
-  --c: #ff7300;
-  background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
-              repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
-              linear-gradient(90deg,#1f1f1f,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(5);
-  border: 10px solid black;
+    @apply h-full w-1/2;
+    --c: #6600ff;
+    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
+                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
+                linear-gradient(180deg,#0e0e0e,var(--c));
+    background-blend-mode: color-dodge;
+    filter: contrast(5);
+    /* mix-blend-mode: soft-light; */
+    border: 10px solid black;
+  }
+.Left img{
+  @apply absolute top-0 left-0 w-full h-full object-cover
+  opacity-40
 }
-.Right{
-  @apply bg-yellow-300 w-full h-1/2 absolute bottom-0;
-  --c: #00a2ff;
-  background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
-              repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
-              linear-gradient(90deg,#1f1f1f,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(5);
-  /* mix-blend-mode: soft-light; */
-  border: 10px solid black;
-}
-.circleT{
-  @apply z-30 rounded-full;
-  height: 200px;
-  width: 200px;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  border: 10px solid black;
-  overflow: hidden;
 
+ .Right{
+    @apply z-30 bg-yellow-300 h-full w-1/2 absolute right-0;
+    --c: #ff9500;
+    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
+                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
+                linear-gradient(0deg,#1f1f1f,var(--c));
+    background-blend-mode: color-dodge;
+    filter: contrast(5);
+    /* mix-blend-mode: soft-light; */
+    border: 10px solid black;
+  } 
+
+  .Right img{
+    @apply 
+    absolute 
+    top-0 left-0 
+    w-full h-full 
+    object-cover
+    opacity-40
+  }
+ .circleT{
+    @apply z-30 rounded-full;
+    height: 350px;
+    width: 350px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border: 10px solid black;
+    overflow: hidden;
 }
 .circleB{
-  @apply z-20 ;
-
+    @apply z-20 rounded-full;
+    height: 400px;
+    width: 400px;
+    --c: #ff043f;
+    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
+                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
+                linear-gradient(180deg,#303030,var(--c));
+    background-blend-mode: color-dodge;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border: 10px double black;
 }
-.circleB-bg{
-  @apply z-20 rounded-full;
-  height: 245px;
-  width: 245px;
-  --c: #3c8f51;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
-	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
-	            linear-gradient(180deg,#303030,var(--c));
-	background-blend-mode: color-dodge;
+.amuse{
+  @apply z-50 w-11/12
+  h-full relative
+  top-10 -left-10 rotate-6
+}
+
+
+.bg{
+  @apply w-full h-full;
+  --c: #d08926;
+  background: repeating-linear-gradient(45deg,var(--c),#8887872c,var(--c) 0.5%),
+              repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
+              linear-gradient(0deg,#060606db,var(--c));
+  background-blend-mode: color-dodge;
+  filter: contrast(1.1);
+  border-radius: 35px;
+  border-color: #000;
+  border-width: 15px;
+}
+#center{
   position:absolute;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-  border: 10px double black;
 }
 .am-1 {
   stroke: #000;
@@ -342,12 +312,8 @@
   fill: #ff7bac;
 }
 
-.bottomrect{
-  @apply max-w-full w-full h-full overflow-hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+.bg{
+  @apply  w-full h-full overflow-hidden;
   --c: #d08926;
   background: repeating-linear-gradient(45deg,var(--c),#8887872c,var(--c) 0.5%),
               repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
@@ -358,92 +324,71 @@
   border-color: #000;
   border-width: 15px;
 }
-/* PC端  */
+/* 手机端  */
 
-@media (min-width: 768px) {
-  .Left {
-    @apply h-full w-1/2;
-    --c: #6600ff;
-    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
-                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
-                linear-gradient(180deg,#0e0e0e,var(--c));
-    background-blend-mode: color-dodge;
-    filter: contrast(5);
-    /* mix-blend-mode: soft-light; */
-    border: 10px solid black;
-  }
-  .Left img{
-    @apply absolute top-0 left-0 w-full h-full object-cover
-    opacity-40
-  }
-  
- .Right{
-    @apply bg-yellow-300 h-full w-1/2 absolute right-0;
-    --c: #ff9500;
-    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
-                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
-                linear-gradient(0deg,#1f1f1f,var(--c));
-    background-blend-mode: color-dodge;
-    filter: contrast(5);
-    /* mix-blend-mode: soft-light; */
-    border: 10px solid black;
-  } 
-  .Right img{
-    @apply absolute 
-    top-0 left-0 
-    w-full h-full 
-    object-cover
-    opacity-40
-  }
- .circleT{
-    @apply z-30 rounded-full;
-    height: 350px;
-    width: 350px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    border: 10px solid black;
-    overflow: hidden;
+@media (max-width: 768px) {
+  #test {
+        display: none; /* 隐藏左侧的 #test 模块 */
+    }
+
+    .flex.flex-row {
+        flex-direction: column; /* 将 flex-row 改为 flex-column */
+    }
+
+    .flex.w-full {
+        width: 100%; /* 右侧模块占据整个宽度 */
+    }
+  .circleT{
+  @apply z-30 rounded-full;
+  height: 200px;
+  width: 200px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border: 10px solid black;
+  overflow: hidden;
+
 }
 .circleB{
-    @apply z-20 rounded-full;
-    height: 400px;
-    width: 400px;
-    --c: #3c8f51;
-    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
-                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
-                linear-gradient(180deg,#303030,var(--c));
-    background-blend-mode: color-dodge;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    border: 10px double black;
-}
-.amuse{
-  @apply z-50 w-11/12
-  h-full relative
-  top-10 -left-10 rotate-6
-}
-
-
-.bottomrect{
-  @apply w-11/12 h-full;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  @apply z-20 ;
+  @apply z-20 rounded-full;
+  height: 245px;
+  width: 245px;
+  --c: #ff043f;
+	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
+	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
+	            linear-gradient(180deg,#303030,var(--c));
+	background-blend-mode: color-dodge;
+  position:absolute;
+  top:50%;
+  left:50%;
   transform: translate(-50%,-50%);
-  --c: #d08926;
-  background: repeating-linear-gradient(45deg,var(--c),#8887872c,var(--c) 0.5%),
-              repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
-              linear-gradient(0deg,#060606db,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(1.1);
-  border-radius: 35px;
-  border-color: #000;
-  border-width: 15px;
+  border: 10px double black;
+
 }
+.Left {
+  @apply bg-red-500 w-full h-1/2;
+  --c: #ff7300;
+  background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
+              repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
+              linear-gradient(90deg,#1f1f1f,var(--c));
+  background-blend-mode: color-dodge;
+  filter: contrast(5);
+  border: 10px solid black;
+}
+.Right{
+  @apply bg-yellow-300 w-full h-1/2 absolute bottom-0;
+  --c: #00a2ff;
+  background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
+              repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
+              linear-gradient(90deg,#1f1f1f,var(--c));
+  background-blend-mode: color-dodge;
+  filter: contrast(5);
+  /* mix-blend-mode: soft-light; */
+  border: 10px solid black;
+}
+  
 
 
 }

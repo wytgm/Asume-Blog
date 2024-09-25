@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full overflow-hidden wrap cursorcus">
     <div id="pc" :class="['grid', 'grid-cols-5', 'grid-rows-5','gap-3', 'p-3', 'w-full', 'h-full', { hidden: isPhone }]">
-       <NuxtLink class="col-start-1 col-end-6 item-center collectbg overflow-hidden" to="/Collection">  
+       <NuxtLink class="col-start-1 col-end-6 item-center collectbg overflow-hidden" to="/Movie">  
             <span class="hover:text-sky-500" style="z-index:2">电子收藏柜</span>
             <div class="h-full w-full absolute" style="z-index: 1">
              <img id="herta" class="h-full absolute -top-4" style="scale: 1.6;" src="https://blog.jixiaob.cn/backup/hertakuru/img/hertaa1.gif"/>
@@ -89,11 +89,12 @@ onUnmounted(() => {
   border-radius: 85px;
   border: 10px solid #112220;
   --c: #7f1899;
-  background: repeating-linear-gradient(45deg,var(--c),#000,var(--c) 0.5%),
-              repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
-              linear-gradient(180deg,#2a2a2adb,var(--c));
+  background: repeating-linear-gradient(45deg,var(--c),#d6d6d6,var(--c) 1%),
+              repeating-linear-gradient(-30deg,var(--c), #d6d6d6, var(--c) 1%),
+              linear-gradient(180deg,#000000db,var(--c));
   background-blend-mode: color-dodge;
   filter: contrast(5);
+  color: #000;
   box-shadow: 0px 0px 0px 5px white;
   width: 100%;
   height: 100%;

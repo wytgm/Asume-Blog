@@ -25,4 +25,7 @@ export default defineNuxtConfig({
   ],
   
   // 其他配置...
+  app: {
+    pageTransition: { name: 'rotate', mode: 'in-out' }
+  },
 })

@@ -33,31 +33,13 @@
     tabindex="0"
     class="
     dropdown-content 
-    avacard
+    avacardhome
     w-64  
     shadow"
     >
     <div class="card-body">
       <h3 class="card-title space-y-10">泥嚎啊 &nbsp;&nbsp; \(@^0^@)/</h3>
-      <p>欢迎来到me的电子收藏柜，本模块主要记录了沉浸式体验各个不同的异次元世界，喜欢这种带给我不同体验的各个世界~</p>
-      <NuxtLink to="/Movie" class="w-full">
-        <div class="btn w-full btn-outline outline-double outline-8 btn-sm bg-rose-400 hover:bg-sky-500">两小时体验券</div>
-      </NuxtLink>
-      <NuxtLink to="/Animation" >
-        <div class="btn w-full btn-outline outline-double btn-sm  bg-rose-400 hover:bg-sky-500">二次元体验券</div>
-      </NuxtLink>
-      <NuxtLink to="/Game" >
-        <div class="btn w-full btn-outline outline-double btn-sm  bg-rose-400 hover:bg-sky-500">沉浸式体验券</div>
-      </NuxtLink>
-      <NuxtLink to="/" >
-        <div class="btn w-full btn-outline outline-double btn-sm  bg-rose-400 hover:bg-sky-500">黑白色的世界</div>
-      </NuxtLink>
-      <NuxtLink to="/" >
-        <div class="btn w-full btn-outline outline-double btn-sm  bg-rose-400 hover:bg-sky-500">文字式体验券</div>
-      </NuxtLink>
-      <NuxtLink to="/" >
-        <div class="btn w-full btn-outline outline-double btn-sm  bg-rose-400 hover:bg-sky-500">返回首页</div>
-      </NuxtLink>
+      <p>这是我的个人主页，主要是用来记录一些娱乐的记录</p>
     </div>
   </div>
 </div>
@@ -127,9 +109,9 @@ export default {
   border: 10px double black;
 
 }
-.avacard{
+.avacardhome{
   font-family: 'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
-  height: 666px;
+  height: 345px;
   border-top-left-radius: 25px;
   border-bottom-right-radius: 66px;
   border-bottom-left-radius: 0px;
