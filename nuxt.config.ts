@@ -1,5 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // pixi配置
+  app: {
+    head: {
+      script: [
+        // {src: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js'},
+        // {src: 'https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js'}
+        { src: '/js/live2dcubismcore.min.js' },
+        { src: '/js/live2d.min.js' },
+      ]
+    }
+  }, 
+  ssr: false,
   compatibilityDate: '2024-04-03',
   // 开发工具，显示页面毫秒数
   devtools: { enabled: false },
@@ -7,25 +19,37 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   }, 
+  //  publicDir: 'public',确保 public 目录包含静态资源
   // 配置tailwindcss
   css: [
     '~/assets/css/tailwind.css'
   ],
- 
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-  // 配置axios、Live2D渲染引擎PIXIJS、
+  // 配置axios等第三方插件
   plugins: [
     '~/plugins/axios.ts',
      '~/plugins/vue-lazyload.client.js'
   ],
   
-  // 其他配置...
-  app: {
-    pageTransition: { name: 'rotate', mode: 'in-out' }
-  },
+  //其他配置 。。。。
+  nitro: {
+    serveStatic: true,
+    devServer: {
+      watch: [
+        'public/**/*'
+      ]
+    },
+    routeRules: {
+      '/**': {
+        headers: {
+          'Content-Type': 'application/javascript'
+        }
+      }
+    }
+  }
 })

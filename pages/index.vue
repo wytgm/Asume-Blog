@@ -1,11 +1,11 @@
 <template>
   <div class="overflow-hidden">   
     <tophome/>
-    <div class="-z-1 center  w-full h-full overflow-hidden">
+    <!-- <div class="-z-1 center  w-full h-full overflow-hidden">
       <video class="center  w-full h-full" muted autoplay loop>
         <source src="/BG.mp4" type="video/mp4">
       </video>
-    </div>  
+    </div>   -->
 <!-- 开场动画 -->
   <div class="z-30 w-full h-full absolute top-0 left-0 overflow-hidden pointer-events-none">
   <div id="left" class="Left overflow-hidden">
@@ -70,7 +70,7 @@
   </div>
   </div>
 
-  <div id="right" class="Right">
+  <div id="right" class="right-open">
     <img src="https://mfiles.alphacoders.com/101/1013086.png" alt=""> 
   </div>
 
@@ -82,10 +82,11 @@
   </div>
   </div>
 
-  <div class="flex flex-row w-10/12 h-[700px] bg-white center">
-    <div id="test" class="flex w-[650px] h-full bg-rose-500"></div>
+  <div class="flex flex-row w-10/12 h-[700px] center space-x-4">
+    <div id="test" class="flex w-[650px] h-full bg-fuchsia-950 border-8 border-black rounded-lg overflow-hidden">
+    </div>
     <div class="flex w-full h-full">
-        <GridLayout class="p-3 bg" />
+        <GridLayout class="z-20 p-3 bg" />
     </div>
 
   </div>
@@ -164,10 +165,9 @@ export default {
   left: 50%;
   transform: translate(-50%,-50%);
 }
-/* PC端 */
+/* PC端css样式*/
 .container {
   font-family:'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
-  /* color: white; */
   font-size:x-large;
 }
 .overly{
@@ -185,7 +185,7 @@ export default {
   /* border-radius: 25px; */
 }
 .Left {
-    @apply h-full w-1/2;
+    @apply h-full w-1/2 absolute top-0 left-0;
     --c: #6600ff;
     background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
                 repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
@@ -200,19 +200,19 @@ export default {
   opacity-40
 }
 
- .Right{
-    @apply z-30 bg-yellow-300 h-full w-1/2 absolute right-0;
-    --c: #ff9500;
-    background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
-                repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
-                linear-gradient(0deg,#1f1f1f,var(--c));
-    background-blend-mode: color-dodge;
-    filter: contrast(5);
-    /* mix-blend-mode: soft-light; */
-    border: 10px solid black;
-  } 
+.right-open{
+  @apply absolute right-0 bg-yellow-300 h-full w-1/2 ;
+  --c: #ff9500;
+  background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.6%),
+              repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.6%),
+              linear-gradient(0deg,#1f1f1f,var(--c));
+  background-blend-mode: color-dodge;
+  filter: contrast(5);
+  /* mix-blend-mode: soft-light; */
+  border: 10px solid black;
+} 
 
-  .Right img{
+  .right-open img{
     @apply 
     absolute 
     top-0 left-0 
