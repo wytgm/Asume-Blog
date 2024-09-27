@@ -6,18 +6,42 @@
       <div class="container mx-auto w-full h-full center bg1">
         <div class="flex flex-row w-11/12 h-full items-center justify-center center space-x-4">
           <div class=" w-[30rem] h-[680px] flex relative items-center justify-center bg-lime-400 ">
-            
+            <div class="character">
+              <div>
+                <div role="alert" class="alert shadow-lg">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      class="stroke-info h-6 w-6 shrink-0">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <div>
+                      <h3 class="font-bold">注意哦!</h3>
+                      <div class="text-xs">动作一定要隔5秒之后再按，否则会出现bug哦！</div>
+                    </div>
+                  </div>
+              </div>
+              <div class="threeseven">
+                
+                <live2d />
+              </div>
+              </div>
           </div>
           <div class="rightchat-bg">
-            <div  class="p-6 w-full h-full relative top-0 left-0 overflow-scroll overflow-x-hidden">
+            <div class="p-6 w-full h-full relative top-0 left-0 overflow-scroll overflow-x-hidden">
             <div v-for="(chat, index) in chats" :key="index" class="chat" :class="chatItemClass(index)" >
               <div class="chat-image avatar indicator" >
                 <img style="width: 80px;height: 80px;border-radius: 50%;" src="http://cdn.sonderwyt.top/Cover/avatar/02.webp" alt="">
               <span class="indicator-item badge">{{ chat.avatarIndicator }}</span>
               </div>
-            <div class="chat-header text-gradient text-lg" >
-                Sonder
-                <span class="text-xs opacity-50 text-gradient">{{ chat.datetody }}</span>
+            <div class="chat-header relative p-3 flex flex-row space-x-2">
+                <div class="flex"> Sonder</div>
+                <div class="flex opacity-100">{{ chat.datetody }}</div>
             </div>
             <div class="chat-bubble" >
               <div class="textcus -translate-y-1">
@@ -43,58 +67,8 @@
             </div>
           </div>
             </div>
-  
-          </div>
-
-
-    
+          </div>    
         </div>
-        
-      <!-- <div class="bg1" > </div>
-      <div class="bg3"></div> -->
-      <!-- 主体 -->
-      <!-- <div class="bg2">
-        <div style="z-index: 5;width: 100%;height: 100%;position: absolute;top: 0;left: 0px;overflow-x: hidden;">
-          <div v-for="(chat, index) in chats" :key="index" class="chat" :class="chatItemClass(index)" style="margin:5px ;">
-            <div class="chat-image avatar indicator" >
-              <img style="width: 80px;height: 80px;border-radius: 50%;" src="http://cdn.sonderwyt.top/Cover/avatar/02.webp" alt="">
-            <span class="indicator-item badge">{{ chat.avatarIndicator }}</span>
-            </div>
-            <div class="chat-header text-gradient text-lg" >
-                Sonder
-                <span class="text-xs opacity-50 text-gradient">{{ chat.datetody }}</span>
-            </div>
-            <div class="chat-bubble" >
-                <p v-html="chat.message"></p>
-                <div v-if="chat && chat.images && chat.images.length > 0" class="grid-container">
-                <div v-for="(image, i) in chat.images" :key="i" class="grid-item">
-                    <a :href="image"><img :src="image" alt="Image"></a>
-                </div>  
-                </div>
-                <a :href="chat.link">{{linktitle}}</a>
-                <div style="height: auto;width: auto;margin-top:5px;" >
-                  <iframe style="border-radius: 15px;" 
-                          v-if="chat.video" 
-                          :src="chat.video" 
-                          allowfullscreen 
-                          width="100%" 
-                          height="285" 
-                          scrolling="no" 
-                          frameborder="0">
-                  </iframe>
-                </div>
-            </div>
-          </div>
-        </div>
-  
-      </div>
-      <div class="character">
-        <div class="threeseven">
-        <live2d />
-      </div>
-      </div> -->
-      
-  
     </div>
   </div>
   </template>
@@ -188,7 +162,7 @@
               linear-gradient(0deg,#060606db,var(--c));
   background-blend-mode: color-dodge;
   filter: contrast(1);
-  border: 10px solid black;
+  border: 5px solid black;
   border-top-left-radius: 32px;
 }
 .leftchat-bg{
@@ -225,12 +199,11 @@
 .character{
   z-index: 5;
   overflow: hidden;
-  width:380px;height: 565px;
-  position: absolute;
-  right: 65px;top: 100px;
-  border-radius: 25px;
+  width:100%;height:100%;
+  position: relative;
+  border-radius: 10px;
   border-width: 5px;
-  background: repeating-conic-gradient(from 0deg at 60% 50%,
+  background: repeating-conic-gradient(from 0deg at 50% 50%,
   rgba(7, 86, 155, 0.981) 0 6deg,
   #ffffffe1 0 12deg);
   border-color: black;
@@ -241,10 +214,10 @@
   z-index: 8;
   scale: 1.45;
   position: absolute;
-  top: 0px;
+  top: 50px;
   left: -70px;
 }
-.imgcus {
+/* .imgcus {
   width: 100%;
   height: 100%;
   border-radius: 12px;
@@ -252,7 +225,7 @@
   object-fit: cover;
   inset: 0px;
   scale: 1.2;
-}
+} */
 .card {
   width:100%; /* 确保卡片宽度适应父容器 */
   height:fit-content;
@@ -292,23 +265,29 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1.5px;
+    grid-gap: 3px;
     margin-bottom: 20px;
     margin-top: 5px;
+    overflow: hidden;
+  
 }
 
 .grid-item {
-  /* border: 1px solid #ccc; */
+  border: 5px solid #000;
+  border-radius: 8px;
   padding: 3px;
   text-align: center;
   height: 180px;
+  overflow: hidden;
 }
 .grid-item img {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
+ 
   object-fit: cover;
   inset: 0px;
+
   }
 /* --------------------bubble样式调整--------------------------- */
 .chat-bubble{

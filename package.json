@@ -13,6 +13,7 @@
     "aplayer": "^1.10.1",
     "axios": "^1.7.7",
     "gsap": "^3.12.5",
+    "lightgallery": "^2.7.2",
     "nuxt": "^3.13.0",
     "nuxt-app": "file:",
     "pixi-live2d-display": "^0.4.0",
@@ -20,7 +21,8 @@
     "sakana-widget": "^2.7.0",
     "vue": "latest",
     "vue-lazyload": "^3.0.0",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-waterfall-plugin-next": "^2.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

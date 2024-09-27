@@ -3,10 +3,10 @@
   <button @click="motion" 
     style="z-index: 8;
     position: absolute;
-    top: 5px;
-    left: 250px;
-    scale: 1;" 
-    class="btn btn-circle btn-outline">
+    top: 50px;
+    left: 45px;
+    scale: 0.85;" 
+    class="btn btn-circle ">
       动作
   </button>
 

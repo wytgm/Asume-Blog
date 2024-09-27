@@ -1,11 +1,11 @@
 <template>
   <div class="overflow-hidden">   
     <tophome/>
-    <!-- <div class="-z-1 center  w-full h-full overflow-hidden">
-      <video class="center  w-full h-full" muted autoplay loop>
+    <div class="-z-1 center  w-full h-full overflow-hidden">
+      <video class="center scale-125" muted autoplay loop>
         <source src="/BG.mp4" type="video/mp4">
       </video>
-    </div>   -->
+    </div>  
 <!-- 开场动画 -->
   <div class="z-30 w-full h-full absolute top-0 left-0 overflow-hidden pointer-events-none">
   <div id="left" class="Left overflow-hidden">
@@ -83,7 +83,8 @@
   </div>
 
   <div class="flex flex-row w-10/12 h-[700px] center space-x-4">
-    <div id="test" class="flex w-[650px] h-full bg-fuchsia-950 border-8 border-black rounded-lg overflow-hidden">
+    <div id="test" class="flex w-[650px] h-full bg-sky-500 border-8 border-black rounded-lg overflow-hidden">
+      <Music/>
     </div>
     <div class="flex w-full h-full">
         <GridLayout class="z-20 p-3 bg" />
@@ -91,18 +92,6 @@
 
   </div>
 
-    
-
-  <!-- <div class="flex flex-row w-5/12" style=" position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);">
-  <div class="flex w-96 h-[720px] bg-white relative"></div>
- 
-  <div class="bottomrect z-0 overflow-hidden">
-    <GridLayout />
-  </div>
-   </div> -->
 
 
   </div>
@@ -141,7 +130,7 @@ export default {
         x:750,
         y:-350,
         scale:0.25,
-        duration: 1.5,
+        duration: 0.8,
         delay:0.3,
         opacity:0,
 
@@ -169,20 +158,6 @@ export default {
 .container {
   font-family:'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
   font-size:x-large;
-}
-.overly{
-  --c: #7e46c7;
-	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 0.5%),
-	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 0.5%),
-	            linear-gradient(180deg,#202020,var(--c));
-	/* 设置背景图片与元素背景颜色的混合模式 */
-	background-blend-mode: color-dodge;
-	filter: contrast(1);
-	/* mix-blend-mode: soft-light; */
-  box-shadow: 0px 0px 0px 3px rgba(255, 131, 131, 0.8);  
-  border-width: 4px;
-  border-color: #000;
-  /* border-radius: 25px; */
 }
 .Left {
     @apply h-full w-1/2 absolute top-0 left-0;
@@ -212,30 +187,30 @@ export default {
   border: 10px solid black;
 } 
 
-  .right-open img{
-    @apply 
-    absolute 
-    top-0 left-0 
-    w-full h-full 
-    object-cover
-    opacity-40
-  }
- .circleT{
-    @apply z-30 rounded-full;
-    height: 350px;
-    width: 350px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    border: 10px solid black;
-    overflow: hidden;
+.right-open img{
+  @apply 
+  absolute 
+  top-0 left-0 
+  w-full h-full 
+  object-cover
+  opacity-40
+}
+.circleT{
+  @apply z-30 rounded-full;
+  height: 350px;
+  width: 350px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border: 10px solid black;
+  overflow: hidden;
 }
 .circleB{
     @apply z-20 rounded-full;
     height: 400px;
     width: 400px;
-    --c: #ff043f;
+    --c: #b004ff;
     background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
                 repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
                 linear-gradient(180deg,#303030,var(--c));
@@ -260,10 +235,11 @@ export default {
               repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
               linear-gradient(0deg,#060606db,var(--c));
   background-blend-mode: color-dodge;
-  filter: contrast(1.1);
-  border-radius: 35px;
+  filter: contrast(1.5);
+  border-top-left-radius: 45px;
+  border-bottom-right-radius: 45px;
   border-color: #000;
-  border-width: 15px;
+  border-width: 8px;
 }
 #center{
   position:absolute;
@@ -312,33 +288,21 @@ export default {
   fill: #ff7bac;
 }
 
-.bg{
-  @apply  w-full h-full overflow-hidden;
-  --c: #d08926;
-  background: repeating-linear-gradient(45deg,var(--c),#8887872c,var(--c) 0.5%),
-              repeating-linear-gradient(-30deg,var(--c), #000, var(--c) 0.5%),
-              linear-gradient(0deg,#060606db,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(1.1);
-  border-radius: 35px;
-  border-color: #000;
-  border-width: 15px;
-}
 /* 手机端  */
 
 @media (max-width: 768px) {
-  #test {
-        display: none; /* 隐藏左侧的 #test 模块 */
-    }
+#test {
+  display: none; /* 隐藏左侧的 #test 模块 */
+}
 
-    .flex.flex-row {
-        flex-direction: column; /* 将 flex-row 改为 flex-column */
-    }
+.flex.flex-row {
+    flex-direction: column; /* 将 flex-row 改为 flex-column */
+}
 
-    .flex.w-full {
-        width: 100%; /* 右侧模块占据整个宽度 */
-    }
-  .circleT{
+.flex.w-full {
+    width: 100%; /* 右侧模块占据整个宽度 */
+}
+.circleT{
   @apply z-30 rounded-full;
   height: 200px;
   width: 200px;
@@ -355,7 +319,7 @@ export default {
   @apply z-20 rounded-full;
   height: 245px;
   width: 245px;
-  --c: #ff043f;
+  --c: #b004ff;
 	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 1%),
 	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 1%),
 	            linear-gradient(180deg,#303030,var(--c));

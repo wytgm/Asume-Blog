@@ -1,0 +1,76 @@
+[
+  {
+    "name": "折剑",
+    "artist": "三无",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E6%8A%98%E5%89%91.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/111.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/audio/%E6%8A%98%E5%89%91.lrc",
+    "theme": "#ff4219"
+  },
+  {
+    "name": "寰宇记书",
+    "artist": "",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E5%AF%B0%E5%AE%87%E8%AE%B0%E4%B9%A6.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/112.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/audio/%E5%AF%B0%E5%AE%87%E8%AE%B0%E4%B9%A6.lrc",
+    "theme": "#ff4219"
+  },
+  {
+      "name": "春日影",
+      "artist": "MyGO!!!!!",
+      "url":   "http://music.163.com/song/media/outer/url?id=2097486090.mp3",
+      "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/110.webp",
+      "lrc":   "http://cdn.sonderwyt.top/Music/LRC/%E6%98%A5%E6%97%A5%E5%BD%B1.lrc",
+      "theme": "#ff4219"
+  },
+  {
+    "name": "雑踏、僕らの街",
+    "artist": "トゲナシトゲアリ!",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E9%9B%91%E8%B8%8F%E3%80%81%E5%83%95%E3%82%89%E3%81%AE%E8%A1%97.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/120.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/LRC/GirlCry_jie.lrc",
+    "theme": "#ab19ff"
+  },
+  {
+    "name": "空の箱",
+    "artist": "仁菜&桃香",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E7%A9%BA%E3%81%AE%E7%AE%B1.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/100.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/LRC/%E7%A9%BA%E3%81%AE%E7%AE%B1.lrc",
+    "theme": "#19ff4a"
+  },
+  {
+    "name": "破晓",
+    "artist": "星尘",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E7%A0%B4%E6%99%93.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/100.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/audio/%E7%A0%B4%E6%99%93.lrc",
+    "theme": "#19ff4a"
+  },
+  {
+    "name": "紧急出口",
+    "artist": "金渔",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E7%B4%A7%E6%80%A5%E5%87%BA%E5%8F%A3.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/100.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/audio/%E7%B4%A7%E6%80%A5%E5%87%BA%E5%8F%A3.lrc",
+    "theme": "#19ff4a"
+  },
+  {
+    "name": "星穹之下",
+    "artist": "不是花火呀",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E6%98%9F%E7%A9%B9%E4%B9%8B%E4%B8%8B.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/100.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/audio/%E6%98%9F%E7%A9%B9%E4%B9%8B%E4%B8%8B.lrc",
+    "theme": "#19ff4a"
+  },
+  {
+    "name": "脱线木偶",
+    "artist": "",
+    "url":"http://cdn.sonderwyt.top/Music/audio/%E8%84%B1%E7%BA%BF%E6%9C%A8%E5%81%B6.mp3",
+    "cover": "http://cdn.sonderwyt.top/Cover/gamemeitu/100.webp",
+    "lrc": "http://cdn.sonderwyt.top/Music/audio/%E8%84%B1%E7%BA%BF%E6%9C%A8%E5%81%B6.lrc",
+    "theme": "#19ff4a"
+  }
+ 
+  
+]

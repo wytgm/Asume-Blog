@@ -40,6 +40,9 @@
     <div class="card-body">
       <h3 class="card-title space-y-10">泥嚎啊 &nbsp;&nbsp; \(@^0^@)/</h3>
       <p>这里是我暗戳戳吐槽记录的说说空间，主要是用来记录一些日常生活</p>
+      <NuxtLink to="/" class="w-full">
+        <div class="btn w-full btn-outline outline-double outline-8 btn-sm bg-rose-400 hover:bg-sky-500">朕已阅 回到首页</div>
+      </NuxtLink>
     </div>
   </div>
 </div>
@@ -72,9 +75,8 @@ export default {
         opacity:0,
       })
       gsap.to(["#circleB1","#circleT1"],{
-        delay:1.5,
         opacity:1,
-        duration:1.5
+        duration:0.8
       })
       
     });
@@ -96,12 +98,12 @@ export default {
 }
 .circleB{
   @apply z-20 rounded-full;
-  height: 135px;
-  width: 135px;
+  height: 128px;
+  width: 128px;
   position:relative;
   right: -20px;
   top: 0;
-  --c: #ff043f;
+  --c: #b004ff;
 	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 4%),
 	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 4%),
 	            linear-gradient(180deg,#232323,var(--c));

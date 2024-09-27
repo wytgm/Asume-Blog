@@ -1,6 +1,6 @@
 <template>
   <div>
-    <top />
+    <topcollect/>
     <div class="whole">
       <div class="bottomrectG">
         <div class="grid grid-cols-3 gap-2 gridcus">
@@ -20,7 +20,7 @@
           <div class="modal-box" v-if="currentGame" style="overflow: auto;">
             <h3 class="modaltext">{{ currentGame.title }} 游玩体验!</h3>
             <div style="margin-top: 10px;" class="w-full" ><button class="w-full btn bg-rose-500 hover:bg-sky-500" @click="goToLink">{{ currentGame.title }}详细内容</button></div>
-            <div style="margin-top: 10px;"><span class="text-white">{{ currentGame.description }}</span></div>
+            <div style="margin-top: 10px;"><span>{{ currentGame.description }}</span></div>
           </div>  
           <form method="dialog" class="modal-backdrop">
             <button>close</button>
@@ -217,6 +217,7 @@ p{
   scale:0.8;
 }
 .modaltext{
+  text-align: center;
   font-size: 36px;
   line-height: 1.75rem ;
   font-weight: 900;

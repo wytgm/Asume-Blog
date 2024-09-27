@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div class="z-10 w-full h-full border-rose-800 absolute top-0 pointer-events-none" style="border-width: 45px;">
+  <div class="z-10 w-full h-full absolute top-0 pointer-events-none" style="border-width: 45px;border-color: blueviolet;">
     <svg id="StripeTop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="90%" height="90%" x="0" y="0" class="z-20" style="scale: 1.13;">
       <polygon id="StripeTop01" class="BK-6" points="1268.87 66 1236.87 66 1267.87 3 1298.87 3 1268.87 66"/>
       <polygon id="StripeTop02" class="BK-6" points="1324.15 66 1292.15 66 1323.15 3 1354.15 3 1324.15 66"/>
@@ -26,8 +26,6 @@
       <img  class=" w-full h-full object-cover relative" src="http://cdn.sonderwyt.top/Cover/avatar/02.webp" alt="">
     </div>
     </div>
-    
-    <!-- <img class="avaborder xl:w-[130px] sm:w-[80px] rounded-full border-8" src="http://cdn.sonderwyt.top/Cover/avatar/02.webp" alt=""> -->
   </div>
   <div
     tabindex="0"
@@ -72,9 +70,8 @@ export default {
         opacity:0,
       })
       gsap.to(["#circleB1","#circleT1"],{
-        delay:1.5,
         opacity:1,
-        duration:1.5
+        duration:0.8
       })
       
     });
@@ -96,17 +93,17 @@ export default {
 }
 .circleB{
   @apply z-20 rounded-full;
-  height: 135px;
-  width: 135px;
+  height: 128px;
+  width: 128px;
   position:relative;
   right: -20px;
   top: 0;
-  --c: #ff043f;
+  --c: #b404ff;
 	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 4%),
 	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 4%),
 	            linear-gradient(180deg,#232323,var(--c));
 	background-blend-mode: color-dodge;
-  border: 10px double black;
+  border: 5px double black;
 
 }
 .avacardhome{

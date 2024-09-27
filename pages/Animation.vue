@@ -1,6 +1,6 @@
 <template>
   <div>
-  <top/>
+  <topcollect/>
   <div class="whole">
     <div class="bottomrectA">
       <div class="gridcus">

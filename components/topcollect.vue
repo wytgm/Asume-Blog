@@ -90,9 +90,8 @@ export default {
         opacity:0,
       })
       gsap.to(["#circleB1","#circleT1"],{
-        delay:1.5,
         opacity:1,
-        duration:1.5
+        duration:0.8
       })
       
     });
@@ -114,12 +113,12 @@ export default {
 }
 .circleB{
   @apply z-20 rounded-full;
-  height: 135px;
-  width: 135px;
+  height: 128px;
+  width: 128px;
   position:relative;
   right: -20px;
   top: 0;
-  --c: #ff043f;
+  --c: #b004ff;
 	background: repeating-linear-gradient(45deg,var(--c),#000000,var(--c) 4%),
 	            repeating-linear-gradient(-30deg,var(--c), #000000, var(--c) 4%),
 	            linear-gradient(180deg,#232323,var(--c));
