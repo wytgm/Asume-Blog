@@ -1,15 +1,15 @@
 <template>
   
-  <div class="carousel w-full cusw" style="object-fit: cover;">
+  <div class="carousel w-full h-full relative object-cover">
     <div
       v-for="(slide, index) in slides"
       :key="index"
       :id="'slide' + (index + 1)"
-      class="carousel-item relative w-full h-full object-cover"
+      class="carousel-item relative w-full h-full object-cover overflow-hidden"
     
     >
     <NuxtLink to="/MeituCollect" class="w-full">
-      <img :src="slide.src" class="imgcus" />
+      <img class="relative w-full h-full object-cover rounded-[25px] border-8" :src="slide.src" />
     </NuxtLink>
      
  
@@ -83,8 +83,8 @@ export default {
   overflow: hidden;
 }
 .imgcus{
-  width: 155%;
-  height: 155%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   -o-object-fit: cover;
   transform: translateY(-30px);

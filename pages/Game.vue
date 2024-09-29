@@ -19,7 +19,15 @@
         <dialog id="myModal" class="modal">
           <div class="modal-box" v-if="currentGame" style="overflow: auto;">
             <h3 class="modaltext">{{ currentGame.title }} 游玩体验!</h3>
-            <div style="margin-top: 10px;" class="w-full" ><button class="w-full btn bg-rose-500 hover:bg-sky-500" @click="goToLink">{{ currentGame.title }}详细内容</button></div>
+              <div class="flex flex-row w-full mt-1 items-center justify-center p-4">
+                <button class="flex w-1/2 btn bg-rose-500 hover:bg-sky-500" 
+                    @click="goToLink">{{ currentGame.title }}详细内容
+                </button>
+                <button  class="w-1/2 btn bg-fuchsia-500 hover:bg-yellow-500" 
+                onclick="window.location.href='/GameGacha';">抽卡记录
+                </button>
+            
+              </div>
             <div style="margin-top: 10px;"><span>{{ currentGame.description }}</span></div>
           </div>  
           <form method="dialog" class="modal-backdrop">
@@ -68,7 +76,7 @@ export default {
     },
     goToLink() {
     window.location.href = this.currentGame.link;
-  }
+    },
   }
 };
 </script>
@@ -86,7 +94,9 @@ export default {
   container 
   mx-auto 
   w-full h-full  
-  center;
+  center
+  bg-rose-500;
+ 
   font-family: 'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
 }
 .bottomrectG{

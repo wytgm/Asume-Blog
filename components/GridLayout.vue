@@ -22,10 +22,10 @@
         <Photo/>
       </div>
       <div class="bg-green-700 col-start-4 col-end-5 row-span-2 item-center">
-        <RunningDay/>
+        06
       </div>
       <div class="bg-rose-700 col-start-5 col-end-6 row-span-2 item-center">旅行足迹</div>
-      <div class="col-start-1 col-end-4 item-center ">
+      <div class="col-start-1 col-end-4 item-center flex flex-col">
         <div class="grid grid-cols-4 gap-1 items-center justify-center">
           <img src="https://img.shields.io/badge/Nuxt-v3.4.2-brightgreen.svg"/>
           <img src="https://img.shields.io/badge/vite-v5.2.0-blue.svg"/>
@@ -35,6 +35,7 @@
           <img src="https://img.shields.io/badge/Pixi.js-v6.5.10-orange.svg"/>
           <img src="https://img.shields.io/badge/aplyer-v1.10.1-yellow.svg"/>
         </div>
+        <RunningDay/>
       </div>
     </div>
 

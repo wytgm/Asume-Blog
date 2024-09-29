@@ -1,19 +1,15 @@
 <template>
-  <top/>
+  
+  <div>
+  <topcollect/>
   <div class="container mx-auto">
     <div class="bg1"></div>
     <div class="bg2">
-    <div id="staril" class="grid grid-cols-3 gridcus">
+    <div id="staril" class="grid grid-cols-3 p-4 gap-2">
      <!-- 卡片 -->
      <div class="card"  v-for="(gacha, index) in gachas" :key="index">
       <div class="version" ></div>
       <!-- 卡片图片部分 -->
-      <!-- <div class="imgcard">
-          <img class="imgcus" :src="gacha.photo" :alt="gacha.photo" v-lazy="gacha.photo">
-          <video autoplay muted controls loop style="scale: 1.25;">
-            <source :src="gacha.video" type="video/mp4">
-          </video>
-      </div> -->
       <div class="imgcard">
         <template v-if="gacha.video">
           <video autoplay muted controls loop style="scale: 1.25;">
@@ -37,9 +33,6 @@
      <!-- 卡片按钮弹窗：对话框列表 -->
      <dialog id="myModal" class="modal">
       <div class="modal-box" v-if="currentGacha" style="overflow: auto;">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost clobutton">✕</button>
-        </form>
         <h3 class="modaltext">{{ currentGacha.people }} 卡池记录!</h3>
         <div style="margin-top: 3%;"><p>{{ currentGacha.content }}</p></div>
         <div style="margin-top: 2%;scale: 0.95;">
@@ -47,12 +40,15 @@
           <video autoplay muted controls loop>
             <source :src="currentGacha.video" type="video/mp4">
           </video>
-        </template>
+        </template> 
         <template v-else>
-          <img :src="currentGacha.photo" :alt="currentGacha.photo" v-lazy="currentGacha.photo">
+          <img class="imgcus"  v-lazy="currentGacha.photo" :alt="currentGacha.photo">
         </template>
         </div>
       </div>
+      <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
     </dialog>
     </div>
 
@@ -62,28 +58,18 @@
     <div class="round2"></div>
 
   </div>
+  </div>
 </template>
 
 <script>
 import { onMounted } from 'vue';
-import gachas from '/src/json/gachadata.json';
-import top from '../components/top.vue';
-import lightGallery from 'lightgallery';
-import 'lightgallery/css/lightgallery.css'
-import 'lightgallery/css/lg-zoom.css';
-import 'lightgallery/css/lg-thumbnail.css';
-import 'lightgallery/css/lg-autoplay.css';
-import 'lightgallery/css/lg-fullscreen.css';
-import lgZoom from 'lightgallery/plugins/zoom';
-import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import lgAutoplay from 'lightgallery/plugins/autoplay';
-import lgFullscreen from 'lightgallery/plugins/fullscreen';
+import gachas from '~/assets/json/gachadata.json';
+
 
 
 export default {
 
   name:"GameGacha",
-  components:{top},
 
   data() {
     return {
@@ -130,49 +116,42 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body {
-  background: url(http://cdn.sonderwyt.top/amuseblogsucai/BG1.webp);
   font-family: 'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
 }
+.center{
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+}
 .bg1{
-  z-index: 1;
-  width:1350px;height: 630px;
+  @apply w-11/12 h-[720px] center absolute;
   background-color: rgb(157, 127, 255);
-  position: absolute;
-  left: 6.2%;top: 8.5%;
   border-radius: 25px;
   border-width: 10px;
   border-color: black;  
 }
 .bg2{
-  z-index: 3;
-  width:1300px;height: 550px;
+  @apply w-8/12 h-[650px] center absolute;
   background: repeating-linear-gradient(80deg,#ad28ff 0 2px,#c362ff 3px 4px,#a31df7 5px);
-  position: absolute;
-  left: 7.8%;top: 11.8%;
   border-radius: 25px;
   border-width: 10px;
   border-color: black;
   overflow: auto;
 }
 
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid {
-  display: grid; 
- }
-.gridcus{
+/* .gridcus{
   margin-top: 38px; 
   gap: 10px;
   margin-left: 23px;
   margin-right: 0px;
   overflow-x: hidden;
-}
+} */
 .card {
+  @apply center;
   position: relative;
-  width: 410px;
+  width: 340px;
   height: 285px;
   /* background: #202020; */
   border-radius: 20px;
@@ -187,19 +166,19 @@ body {
 }
 .imgcard{
   z-index: 3;
-  width: 380px;height: 200px;
+  width: 310px;height: 200px;
   background: repeating-linear-gradient(120deg,#ff28f1 0 2px,#ff62e0 3px 4px,#ff28f1 5px);
   border-radius: 35px;
   position: absolute;
   left: 15px;top: -20px;
   overflow: hidden;
-  /* border-width: 5px;
-  border-color: rgb(250, 194, 62); */
+  border-width: 5px;
+  border-color: rgb(250, 194, 62);
 }
 .imgcus{
   object-fit: cover;
   transform: translate(0px,35px);
-  scale: 1.3;
+  scale: 1.4;
 }
 .version{
   background-color: rgb(171, 68, 250);
@@ -209,8 +188,11 @@ body {
   bottom: 18px;
   border-radius: 35px;
   font-size: larger;
+  text-align: center;
 }
 .buttoncus{
+  @apply hover:bg-sky-500;
+  padding: 10px;
   position: absolute;
   bottom: 7%;
   right: 5%;
@@ -220,13 +202,8 @@ body {
   background-color: coral;
 
 }
-.clobutton{
-  position: absolute;
-  right: 0.5rem ;
-  top: 0.5rem;
-  scale:0.5;
-}
 .modaltext{
+  text-align: center ;
   font-size: 36px;
   line-height: 1.75rem ;
   font-weight: 900;

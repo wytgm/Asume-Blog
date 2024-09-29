@@ -1,11 +1,12 @@
 <template>
-  <div class="container mx-auto w-full h-full blur-background">
-    <!-- 总网格布局 -->
-    <div class="grid grid-cols-3 gap-6 gridposi">
+  <div>
+  <topmeitu/>
+  <div class="container mx-auto w-full h-full absolute center bg-slate-700"> 
+    <div class="grid grid-cols-3 gap-6 p-4 relative center w-full h-[700px] -mt-6 ml-6">
       <!-- 左列最低部 bg-rose-500 -->
       <div class="col-span-1" >
           <!-- divIDcard信息 bg-green-400-->
-          <div class="grid grid-rows-2 grid-cols-2 gap-3 w-full h-75 p-3">
+          <div class="grid grid-rows-2 grid-cols-2 gap-3 w-full h-75 p-3 relative" >
             <!-- 头像名称等级 -->
             <div class="col-start-1 col-end-3 
             outline-double rounded-xl 
@@ -19,7 +20,7 @@
               <div class="name-left">
               Sonder🚀
               <hr class="-mt-3">
-              <div class="w-49 relative top-1 text-justify modal-textfont">
+              <div class="w-44 -relative top-1 text-justify modal-textfont">
                 <p style="font-size:12px;">
                 我们重拾起没落乐章的残篇，得以再现辉煌时刻的盛宴；
                 我们解密未知科技的核心，得以窥见文明的智慧结晶是多么耀眼。
@@ -64,174 +65,154 @@
                 mt-3 ml-0.5"
           > 还没想好要放什么</div>
           <div class="grid-flow-row gap-0 
+                h-12 
+                outline-dotted rounded-3xl
+                flex items-center 
+                justify-center 
+                mt-3 ml-0.5"
+          > 还没想好要放什么</div>
+          <div class="grid-flow-row gap-0 
           h-12 
                 outline-dotted rounded-3xl
                 flex items-center 
                 justify-center 
                 mt-3 ml-0.5"
           >此网页参考”罗浮杂俎“的页面布局</div>
-        </div>
-      <!-- 右列最低部 -->
-      <div class="col-span-2
-      p-3 
-      overflow-scroller
-      overflow-x-hidden
-      custom-scrollbar rounded-xl" >
-        <!-- 信息卡片 -->
-       <button @click="openModal(index)" class="btn btn-ghost hover:outline-0 hover:btn-ghost relative left-0 mt-0 p-0" v-for="(Herta, index) in Hertas" :key="index">
-        <div
-        :id="Herta.id" 
-        class="grid-flow-row h-36 w-173 rounded-xl 
-              outline-6 outline-double 
-              flex items-center justify-center
-              mt-1 bg-slate-700">
-        <!-- 左侧图片 -->
-        <div class="w-63 h-full relative left-0 overflow-hidden">
-          <img class="w-full h-full object-cover rounded-xl" :src="Herta.poster" alt="">
-        </div>
-        <!-- 右侧文本 -->
-        <div class="w-110 h-full overflow-hidden">
-          <!-- 头像标题 flex-row-reverse-->
-          <div class="flex p-2">
-            <img style="width: 30px;height: 30px;border-radius: 50%;" src="http://cdn.sonderwyt.top/Cover/avatar/02.webp" alt="">
-            <div class="relative m-1 text-xs">{{Herta.name}}</div>
+      </div>
+      <!-- 右侧 -->
+      <div class="col-span-2 p-3 flex flex-col-reverse w-full relative gap-6 overflow-x-hidden overflow-scroll">
+      <div role="button" 
+      @click="openModal(herta)"
+      class="flex w-11/12 h-full border-4 items-center justify-center ml-4" 
+      v-for="herta in hertas" :key="herta._path">
+        <div class="w-2/3 h-full relative left-0 bg-sky-950">
+          <div class="flex p-2 ">
+            <img class="w-12 h-12 rounded-full" v-lazy="herta.avatar" alt="">
+            <div class="relative m-1 text-xs">{{herta.name}}</div>
           </div>
           <!-- 文本标题 -->
-          <div class="relative p-1 -top-2 text-left text-lg text-lime-500 ml-3 text-ellipsis">{{Herta.title}}</div>
-          <!-- 文本简介 bg-yellow-900-->
-          <div class="flex relative ml-4 w-100 -top-3">
+          <div class="relative p-1 -top-2 text-left text-lg text-lime-500 ml-3">{{herta.subtitle}}</div>
+           <!-- 文本简介 bg-yellow-900-->
+           <div class="flex relative ml-4 w-100 -top-3">
             <span  class="relative  text-left text-sm text-clip">
               <span class="text-emerald-400 underline decoration-wavy leading-6">
-                {{Herta.idtag}}
+                {{herta.idtag}}
               </span>
-              &nbsp; {{Herta.intro}}
+              &nbsp; {{herta.intro}}
             </span>
           </div>
-          <!-- 图标评论 -->
-          <div class="flex relative ml-3 "> 
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><path class="hover:fill-red-500" fill="#ffffff" fill-rule="evenodd" d="M3.788 1.314c.988.02 2.085.49 3.214 1.56c1.127-1.067 2.223-1.536 3.21-1.555c1.04-.02 1.918.46 2.536 1.18c1.218 1.42 1.47 3.85-.058 5.377l-.001.001l-4.247 4.208c-.81.802-2.07.802-2.88 0L1.316 7.877C-.217 6.343.032 3.913 1.25 2.491c.617-.72 1.495-1.2 2.537-1.178Z" clip-rule="evenodd"/></svg>
-                <p class="ml-2">{{Herta.love}}</p>
-                <svg class="ml-6" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path class="hover:fill-sky-500" fill="#ffffff" d="M9 22a1 1 0 0 1-1-1v-3H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6.1l-3.7 3.71c-.2.19-.45.29-.7.29zm8-11V9h-2v2zm-4 0V9h-2v2zm-4 0V9H7v2z"/></svg>
-                <p class="ml-2">{{Herta.coment}}</p>
-          </div>
-         
-        </div>
-        </div>
-      </button>
-
-      <!-- You can open the modal using ID.showModal() method -->
-      <dialog id="myModal" class="modal">
-        <div class="modal-box w-10/12 max-w-6xl h-148 max-h-3xl shadow-lg" style="background-color: rgba(125, 255, 255, 0);">
-          <div class="flex w-full h-full border-10 border-rose-500 border-double rounded-lg">
-            <div class="w-5/12 h-full  bg-red-600 overflow-hidden rounded-xl">
-              <div class="carousel carousel-vertical w-full h-full object-cover relative left-0 ">
-                <div class="carousel-item overflow-hidden" v-for="(img, index) in currentHertas.hertaimg" :key="index" >
-                  <img class="w-full object-cover overflow-hidden" :src="img" />
-                </div>
-              </div>
-            </div>
-            <!-- underline decoration-dotted font-bold-->
-              <div class="w-7/12 h-ful overflow-scroll rounded-xl modal-textbg overflow-x-hidden">
-                <article class="
-                antialiased
-                modal-textfont
-                p-8
-                text-justify 
-                text-black 
-                space-y-10
-                
-                " 
-                v-html="currentHertas.content"> </article>
-                <a class="underline decoration-pink-500" :href="currentHertas.link">任务详情链接</a>
-              </div>
-            
-
+           <!-- 图标评论 -->
+           <div class="flex relative ml-3 "> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 14 14"><path class="hover:fill-red-500" fill="#ffffff" fill-rule="evenodd" d="M3.788 1.314c.988.02 2.085.49 3.214 1.56c1.127-1.067 2.223-1.536 3.21-1.555c1.04-.02 1.918.46 2.536 1.18c1.218 1.42 1.47 3.85-.058 5.377l-.001.001l-4.247 4.208c-.81.802-2.07.802-2.88 0L1.316 7.877C-.217 6.343.032 3.913 1.25 2.491c.617-.72 1.495-1.2 2.537-1.178Z" clip-rule="evenodd"/></svg>
+              <p class="ml-2">{{herta.love}}</p>
+              <svg class="ml-6" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path class="hover:fill-sky-500" fill="#ffffff" d="M9 22a1 1 0 0 1-1-1v-3H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6.1l-3.7 3.71c-.2.19-.45.29-.7.29zm8-11V9h-2v2zm-4 0V9h-2v2zm-4 0V9H7v2z"/></svg>
+              <p class="ml-2">{{herta.comment}}</p>
           </div>
         </div>
-        <form method="dialog" class="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-
+        <div class="w-1/3 h-full relative object-cover">
+          <img class="w-full h-full relative object-cover" :src="herta.poster" alt="">
+        </div>
       </div>
     </div>
-    
-    
-  </div>
+    <!-- 模态框 -->
+    <dialog id="myModal" class="modal">
+      <div class="modal-box w-8/12 max-w-6xl">
+        <div class="flex w-full h-full border-10 border-double rounded-lg">
+          <!-- 图片部分 -->
+          <div class="w-[490px] h-[650px] overflow-hidden rounded-xl" v-if="selectedHerta && selectedHerta.images">
+            <div class="carousel carousel-vertical w-full h-full object-cover" >
+              <div  class="carousel-item h-full object-cover" v-for="(image, index) in selectedHerta.images" :key="index">
+               <a :href="image"> 
+                <img class=" w-full h-full object-cover relative" :src="image" />
+               </a>
+              </div>
+            </div>
+          </div>
+          <!-- 文字部分 -->
+         
+          <div class="w-full h-[650px] overflow-scroll overflow-x-hidden p-10 text-justify -mt-5" v-if="selectedHerta">
+            <div role="alert" class="alert alert-success">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          <span>右侧图片可以向下滑动浏览哦~</span>
+          </div>
+            <ContentDoc class="mt-3" :path="selectedHerta._path" />
+          </div>
+        </div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  </div>  
+</div>
+</div>
 </template>
 
+<script setup>
+import { ref } from 'vue';
+import topmeitu from '~/components/topmeitu.vue';
 
-<script>
-import { onMounted } from 'vue';
-import Hertas from '/src/json/Herta.json';
-export default {
-  name:"Herta",
-  data() {
-    return {
-      Hertas: Hertas,
-      currentHertas:{}
-    };
-  },
-  setup() {
-    
-  },
-  methods:{
-    // 打开弹窗的函数
-    openModal(index) {
-      // Validate the index
-      if (Number.isInteger(index) && index >= 0 && index < this.Hertas.length) {
-        this.currentHertas = this.Hertas[index];
-        const modal = document.getElementById('myModal');
-        if (modal && modal.showModal) {
-          modal.showModal();
-        } else {
-          console.error('showModal is not supported');
-        }
-      } else {
-        console.error('Invalid index:', index);
-      }
-    },
-    closeModal() {
-      const modal = document.getElementById('myModal');
-      if (modal && modal.close) {
-        modal.close();
-      }
-    }
-  },
-  
-}
+const modal = ref(null);
+const selectedHerta = ref(null);
+
+const { data: hertas } = await useAsyncData('hertas', async () => {
+  return await queryContent('herta').find();
+});
+
+const openModal = (herta) => {
+  selectedHerta.value = herta;
+  const modal = document.getElementById('myModal');
+  if (modal && modal.showModal) {
+    modal.showModal();
+  } else {
+    console.error('showModal is not supported');
+  }
+};
+
+// const closeModal = () => {
+//   selectedHerta.value = null;    
+// };
+
+onMounted(() => {
+  const gallery = document.getElementById('gallery');
+  if (gallery) {
+    lightGallery(gallery, {
+      download: false, // 禁用下载按钮
+      share: false,   // 禁用分享按钮
+      // 其他配置选项...
+    });
+  }
+});
+
+
 </script>
 
-<style>
-/* @import url('https://static.zeoseven.com/cn/7/main/result.css'); */
+<style scoped>
 @import url('https://static.zeoseven.com/cn/6/main/result.css');
-body{
-  font-family: 'Uranus_Pixel_11Px', 'Uranus Pixel 11Px';
-  color: #b8deff;
-  background-image: url("https://webstatic.mihoyo.com/upload/op-public/2022/05/07/cad3482de507e5136a0f4d54703c5854_7927756332864927413.png");
-  background-position: center center; 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #d55252; 
+@font-face {
+  font-family: "XuandongKaishu";
+  src: url(https://static.zeoseven.com/cn/6/main/result.css);
 }
-.blur-background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  backdrop-filter: blur(15px); /* 背景模糊效果 */
- 
+.modal-textfont{
+  font-family: "XuandongKaishu";
 }
-.gridposi{
-  position: absolute;
+.container{
+  font-family:XuandongKaishu   ;
+}
+.center{ 
   top: 50%;
   left: 50%;
-  transform: translate(-40%,-50%);
-  height:700px;
-  width: 1360px;
-  overflow: hidden;
+  transform: translate(-50%,-50%);
 }
 .avatar-left{
   width: 100px;
@@ -246,25 +227,46 @@ body{
   position: relative;
   top: -12px;
 }
-.modal-textbg{
-  --c: #2686d0;
-  background: repeating-linear-gradient(45deg,var(--c),#8887872c,var(--c) 0.3%),
-              repeating-linear-gradient(-30deg,var(--c), #1e1e1e, var(--c) 0.3%),
-              linear-gradient(0deg,#191919db,var(--c));
-  background-blend-mode: color-dodge;
-  filter: contrast(5);
-  mix-blend-mode: soft-light;
+
+
+
+
+
+
+
+
+
+
+/* 确保 Markdown 内容的样式正确 */
+.modal :deep(h1),
+.modal :deep(h2),
+.modal :deep(h3),
+.modal :deep(h4),
+.modal :deep(h5),
+.modal :deep(h6) {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
-@font-face {
-  font-family: "XuandongKaishu";
-  src: url(https://static.zeoseven.com/cn/6/main/result.css);
+
+.modal :deep(p) {
+  margin-bottom: 1em;
 }
-.modal-textfont{
-  font-family: "XuandongKaishu";
+
+.modal :deep(ul),
+.modal :deep(ol) {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
 }
-.space-y-10 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(0.8rem* calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(2.5rem* var(--tw-space-y-reverse));
+
+.modal :deep(pre) {
+  background-color: #f4f4f4;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.modal :deep(code) {
+  background-color: #f4f4f4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
 }
 </style>
