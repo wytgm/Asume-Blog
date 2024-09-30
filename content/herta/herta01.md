@@ -10,9 +10,10 @@ intro: 你 将开拓漫长旅途，踏过的荆棘都成了路。列车鸣笛，
 love: 656241
 comment: 20
 images:
-  - http://cdn.sonderwyt.top/Honkai%3A%20Star%20Rail/Storyimg/%E7%8C%AB%E7%8C%AB%E7%B3%9502.webp
-  - https://patchwiki.biligame.com/images/sr/2/2e/cn22ty1s806n6595zh9u8ko8hcghn51.png
-  - https://patchwiki.biligame.com/images/sr/1/10/3avvg06kgbg1w2sapljjre17z3v6kvg.png
+  - http://cdn.sonderwyt.top/Honkai%3A%20Star%20Rail/Storyimg/%E5%BC%80%E7%AF%8700.webp
+  - http://cdn.sonderwyt.top/Honkai%3A%20Star%20Rail/Storyimg/%E5%BC%80%E7%AF%8701.webp
+  - http://cdn.sonderwyt.top/Honkai%3A%20Star%20Rail/Storyimg/%E5%BC%80%E7%AF%8702.webp
+  - http://cdn.sonderwyt.top/Honkai%3A%20Star%20Rail/Storyimg/%E5%BC%80%E7%AF%8703.webp
 ---
 
 

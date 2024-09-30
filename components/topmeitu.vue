@@ -19,7 +19,7 @@
       <polygon id="StripeBottom6" class="BK-6" points="840.23 1083 808.23 1083 839.23 1020 870.23 1020 840.23 1083"/>
     </svg>
   </div>
-  <div class="dropdown dropdown-left z-30 absolute right-0 top-0">
+  <div class="dropdown dropdown-left z-30 absolute right-0">
   <div tabindex="0" role="button" class="btn btn-ghost hover:btn-ghost" style="background-color: rgba(155, 155, 155, 0);">
     <div id="circleB1" class="circleB">
       <div id="circleT1" class="circleT" style="">
